@@ -10,11 +10,11 @@ const Blagues = db.define(
       autoIncrement: true,
       primaryKey: true,
     },
-    blague: {
+    blagues: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    reponse:{
+    reponses:{
         type: DataTypes.STRING,
         allowNull: false
     }

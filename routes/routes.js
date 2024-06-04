@@ -18,7 +18,7 @@ router.get('/blagues', controllerBlague.findAll);
 
 router.get('/blagues/:id', controllerBlague.findById);
 
-router.post('/blagues/create', controllerBlague.create);
+router.post('/blagues', controllerBlague.create);
 
 
 module.exports = router;
