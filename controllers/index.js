@@ -10,12 +10,12 @@ const controllerBlague = {
         try {
             const data = await Blagues.findAll();
             if (data.length === 0) {
-                return res.status(404).json({ error: "No jokes found" });
+                return res.status(404).json({ error: "Blague non trouvée" });
             }
             const RandomBlague = getRandomBlague(data);
             res.status(200).json({ blagues: RandomBlague });
         } catch (error) {
-            res.status(500).json({ error: "An error occurred while fetching a random joke" });
+            res.status(500).json({ error: "Une erreure s'est produite" });
         }
     },
     findAll :  async (req, res) =>{
@@ -25,12 +25,12 @@ const controllerBlague = {
     findById: async (req, res) => {
         const id = req.params.id;
         if (isNaN(id)) {
-            return res.status(400).json({ error: "Don't use text for id" });
+            return res.status(400).json({ error: "N'utilisez pas de texte pour l'identification" });
         }
 
         const blague = await Blagues.findByPk(id);
         if (!blague) {
-            return res.status(404).json({ error: "ID not found ..." });
+            return res.status(404).json({ error: "ID not found" });
         }
         return res.status(200).json({ result: blague });
     },
@@ -38,7 +38,7 @@ const controllerBlague = {
         console.log(req.body);
         const data = await Blagues.create(req.body);
         console.log(data);
-        res.status(201).json({ message: "l'etudiant à été ajoutée", data: req.body });
+        res.status(201).json({ message: "Blague ajoutée", data: req.body });
 
     },
 }

@@ -1,20 +1,25 @@
 const { DataTypes } = require('sequelize');
 const db = require('../db/database');
 
-const Blagues = db.define('Blagues', {
+const Blagues = db.define(
+  'Blagues',
+  {
+    // Model attributes are defined here
     id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
     blague: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    reponse: {
+    reponse:{
         type: DataTypes.STRING,
         allowNull: false
     }
-});
+    
+  },
+);
 
 module.exports = Blagues;
